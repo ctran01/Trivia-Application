@@ -4,6 +4,10 @@
 
 A Trivia application made with ReactJS!
 
+## Live Link
+
+<a href="https://trivia-application-tandem.herokuapp.com/">Here</a>
+
 ## Technologies
 
 - ReactJS
