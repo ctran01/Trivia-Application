@@ -1,37 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import LeftMenu from "./LeftMenu";
 import GameContext from "../context/GameContext";
 import Question from "./Question";
 const Main = () => {
-  const {
-    questions,
-    setQuestions,
-    onStart,
-    setCurrentQuestion,
-    currentQuestion,
-    gameState,
-    getQuestions,
-  } = useContext(GameContext);
-
-  // const questionList = data.map((question) => {
-  //   return <div>{question.question}</div>;
-  // });
-  useEffect(() => {
-    setQuestions(getQuestions);
-  }, []);
+  const { onStart, gameState } = useContext(GameContext);
 
   return (
     <div>
       <LeftMenu />
       <main className="main-content-container">
-        <h1 className="header">Trivia Game! </h1>
+        <div className="header-container">
+          <h1 className="header">Trivia Game!</h1>{" "}
+        </div>
         {gameState === false ? (
           <>
             <div className="main-content">
-              Welcome to my Trivia Game! Click start to begin!
+              <h1>Welcome to my Trivia Game! Click start to begin!</h1>
             </div>
             <div>
-              <button onClick={onStart}>Start!</button>
+              <button className="start-button" onClick={onStart}>
+                Start!
+              </button>
             </div>
           </>
         ) : (
