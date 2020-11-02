@@ -6,11 +6,7 @@ A Trivia application made with ReactJS!
 
 ## Live Link
 
-<<<<<<< HEAD
 <a href="https://trivia-application-tandem.herokuapp.com/">Here </a>
-=======
-<a href="https://trivia-application-tandem.herokuapp.com/">Here</a>
->>>>>>> trivia
 
 ## Technologies
 
