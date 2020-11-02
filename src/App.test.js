@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
-
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+import { render, screen } from "@testing-library/react";
+import App, { getQuestions } from "./App";
+import data from "../src/data//questions.json";
+// describe("App", () => {
+//   it("getQuestions function returns 10 questions", () => {
+//     expect(getQuestions(data).length.toEqual(10));
+//   });
+// });

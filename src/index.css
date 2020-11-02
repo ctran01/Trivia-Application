@@ -1,14 +1,5 @@
 /* Left Menu */
-/* .left-menu-container {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 55px;
-  bottom: 0px;
-  left: 0px;
-  height: 100%;
-  width: 240px;
-} */
+
 .left-menu-container {
   width: 20%;
   max-width: 280px;
@@ -21,14 +12,17 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  background-color: azure;
 }
 
-.left-menu-container-bottom__button {
+.left-menu-container-bottom__button,
+.restart-button {
   border: none;
   border-radius: 15px;
   font-size: 18px;
   background-color: lightblue;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 .left-menu-container div {
@@ -42,49 +36,8 @@
   overflow: hidden;
   color: black;
 }
-/* Top Menu */
-/* .top-menu-container {
-  display: flex;
-  flex-direction: row;
 
-  z-index: 10;
-  justify-content: space-between;
-  align-items: center;
-  background-color: lightblue;
-  width: 100%;
-  height: 100px;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-} */
-/* .top-menu-left {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.top-menu-middle {
-  padding-top: 10px;
-  width: 600px;
-  margin-right: 84px;
-}
-.top-menu-right {
-  display: flex;
-  padding-right: 30px;
-  position: fixed;
-  right: 10px;
-} */
-
-/* Main Content */
-/* .main-content-container {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-
-  top: 150px;
-  left: 500px;
-  width: calc(100% - 250px);
-  padding-top: 30px;
-} */
+/* Main */
 
 .main-content-container {
   padding-left: 280px;
@@ -94,19 +47,47 @@
 .main-content {
   padding: 0px 40px;
   height: 100%;
+  margin-left: 500px;
 }
 .header {
+  font-size: 80px;
+  margin-left: 650px;
 }
 
+html {
+  background-color: azure;
+}
+.button {
+  font-size: 15px;
+}
+.start-button {
+  font-size: 50px;
+  margin-left: 860px;
+}
 .question-container {
-  width: 100%;
-  min-width: 75%;
+  width: 900px;
+  position: fixed;
+  left: 600px;
+  background-color: azure;
   max-width: 75%;
 }
 
-.question {
+.question__header {
+  font-size: 30px;
 }
 
-.question-answer__input {
-  flex: display;
+.question-answer__input,
+.submitButton,
+.nextButton {
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+.results-container {
+  position: fixed;
+  left: 950px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

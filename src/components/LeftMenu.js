@@ -8,7 +8,7 @@ const LeftMenu = () => {
 
   return (
     <div className="left-menu-container">
-      <div className="left-menu-container-top">Logo</div>
+      <div className="left-menu-container-top"></div>
       <div className="left-menu-container-middle">
         Question Number: {questionNumber}
       </div>

@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React, { useContext, useEffect, useState } from "react";
 import GameContext from "../context/GameContext";
 import Results from "./Results";
@@ -8,7 +7,6 @@ const Question = () => {
     currentQuestion,
     setScore,
     score,
-    // nextQuestion,
     questionNumber,
     setQuestionNumber,
     setCurrentQuestion,
@@ -40,19 +38,16 @@ const Question = () => {
       if (selectedAnswer === currentQuestion.correct) {
         setCorrectAnswer(true);
         setScore(score + 1);
-        // console.log(questionNumber);
       } else if (selectedAnswer !== currentQuestion.correct) {
         setCorrectAnswer(false);
-        // console.log(questionNumber);
       }
     }
   };
 
   useEffect(() => {
-    // console.log(currentQuestion);
-    let newList = currentQuestion.incorrect;
-    newList.push(currentQuestion.correct);
-    // let newNew = shuffleAnswers(newList);
+    let newList = shuffleAnswers(
+      currentQuestion.incorrect.concat(currentQuestion.correct)
+    );
     setAnswerChoices(newList);
   }, [currentQuestion]);
 
@@ -61,7 +56,7 @@ const Question = () => {
       console.log(answerChoices);
       setQuestionNumber(questionNumber + 1);
       setCurrentQuestion(questions[questionNumber - 1]);
-      setAnswerChoices(shuffleAnswers(answerChoices));
+
       setSelectedAnswer();
       setCorrectAnswer(null);
       console.log(gameState);
@@ -73,6 +68,8 @@ const Question = () => {
 
   const showResults = () => {
     setResults(true);
+    setCorrectAnswer(null);
+    setSelectedAnswer();
   };
   return (
     <>
@@ -102,31 +99,56 @@ const Question = () => {
             </div>
           </div>
           {correctAnswer === null && questionNumber <= 10 && (
-            <div className="submitButton">
-              <button onClick={checkAnswer}>Submit</button>
+            <div className="submitButton button">
+              <button
+                className="button"
+                onClick={checkAnswer}
+                style={{ fontSize: "15px" }}
+              >
+                Submit
+              </button>
             </div>
           )}
           {correctAnswer !== null && questionNumber <= 10 && (
-            <div className="nextButton">
+            <div className="nextButton button">
               {questionNumber === 10 ? (
-                <button onClick={showResults}>Show Results</button>
+                <button
+                  className="button"
+                  onClick={showResults}
+                  style={{ fontSize: "15px" }}
+                >
+                  Show Results
+                </button>
               ) : (
-                <button onClick={nextQuestion}>Next Question</button>
+                <button
+                  className="button"
+                  onClick={nextQuestion}
+                  style={{ fontSize: "15px" }}
+                >
+                  Next Question
+                </button>
               )}
             </div>
           )}
           <div className="Result Container">
             {correctAnswer !== null && correctAnswer === true && (
               <div>
-                Correct! The correct answer choice was {currentQuestion.correct}
+                <p style={{ fontSize: "20px", backgroundColor: "lightgreen" }}>
+                  Correct! The correct answer choice was{" "}
+                  {currentQuestion.correct}.
+                </p>
               </div>
             )}
-            {correctAnswer !== null && correctAnswer === false && (
-              <div>
-                Incorrect! The correct answer choice was{" "}
-                {currentQuestion.correct}{" "}
-              </div>
-            )}
+            {correctAnswer !== null &&
+              correctAnswer === false &&
+              gameState === true && (
+                <div>
+                  <p style={{ fontSize: "20px", backgroundColor: "lightpink" }}>
+                    Incorrect! The correct answer choice was{" "}
+                    {currentQuestion.correct} .
+                  </p>
+                </div>
+              )}
           </div>
         </div>
       ) : (

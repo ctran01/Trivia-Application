@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Main from "./components/Main";
 import GameContext from "./context/GameContext";
 import data from "./data/questions.json";
+
 const App = () => {
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState(false);
@@ -23,16 +24,22 @@ const App = () => {
     }
     return questionList;
   };
+  useEffect(() => {
+    setQuestions(getQuestions);
+  }, []);
 
   const onStart = () => {
     setGameState(true);
     setQuestions(getQuestions);
+    console.log(questions);
     setQuestionNumber(1);
     setCurrentQuestion(questions[0]);
+    setResults(false);
   };
 
   const onRestart = () => {
     setQuestions(getQuestions);
+    console.log(questions);
     setQuestionNumber(1);
     setScore(0);
     setCurrentQuestion(questions[0]);
@@ -48,10 +55,7 @@ const App = () => {
       setGameState(false);
     }
   };
-  const prevQuestion = () => {
-    if (questionNumber > 0)
-      setCurrentQuestion(questions.indexOf(currentQuestion) - 1);
-  };
+
   const context = {
     score,
     setScore,
@@ -65,7 +69,6 @@ const App = () => {
     onStart,
     onRestart,
     nextQuestion,
-    prevQuestion,
     questionNumber,
     setQuestionNumber,
     results,
