@@ -2,11 +2,20 @@
 
 ## Introduction
 
-I made this application using ReactJS via createreactapp.
+A Trivia application made with ReactJS!
 
-### `Starting the application`
+## Technologies
 
-To start the application, simply navigate to the project directory, type npm install in your terminal install the packages, and then type npm run in your terminal to run the web application. It should open up a web application running on localhost:3000.
+- ReactJS
+- React Hooks
+- CSS
+
+### `To run locally:`
+
+1. Navigate to project directory
+2. Open up terminal and type npm install to install packages
+3. Type npm run to run the trivia application
+4. Open browser to localhost:3000
 
 ### `Additional Features`
 
