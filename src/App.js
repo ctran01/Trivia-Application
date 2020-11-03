@@ -32,21 +32,17 @@ const App = () => {
   const onStart = () => {
     setGameState(true);
     setQuestions(getQuestions);
-    console.log(questions);
     setQuestionNumber(1);
     setCurrentQuestion(questions[0]);
     setResults(false);
   };
 
   const onRestart = () => {
-    setResults(false);
     setCorrectAnswer(null);
-    setQuestions(getQuestions);
-    console.log(questions);
-    setQuestionNumber(1);
+    setQuestions([]);
+    setCurrentQuestion([]);
     setScore(0);
-    setCurrentQuestion(questions[0]);
-    setGameState(true);
+    onStart();
   };
 
   const context = {

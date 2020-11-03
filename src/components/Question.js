@@ -54,14 +54,11 @@ const Question = () => {
 
   const nextQuestion = () => {
     if (questionNumber <= questions.length) {
-      console.log(answerChoices);
       setQuestionNumber(questionNumber + 1);
       setCurrentQuestion(questions[questionNumber - 1]);
 
       setSelectedAnswer();
       setCorrectAnswer(null);
-      console.log(gameState);
-      console.log(questionNumber);
     } else {
       setGameState(false);
     }
