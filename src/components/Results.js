@@ -9,7 +9,11 @@ const Results = () => {
       <h1 style={{ fontSize: "80px" }}> Game Over!</h1>
       <h2 style={{ fontSize: "50px" }}>You scored {score} out 10!</h2>
       <div style={{ fontSize: "25px" }}>Would you like to play again? </div>
-      <button className="restart-button" onClick={onRestart}>
+      <button
+        className="restart-button"
+        onClick={onRestart}
+        style={{ marginTop: "20px" }}
+      >
         Play Again
       </button>
     </div>

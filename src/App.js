@@ -10,6 +10,7 @@ const App = () => {
   const [questionNumber, setQuestionNumber] = useState();
   const [currentQuestion, setCurrentQuestion] = useState({});
   const [results, setResults] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState(null);
 
   const getQuestions = () => {
     let questionList = [];
@@ -38,22 +39,14 @@ const App = () => {
   };
 
   const onRestart = () => {
+    setResults(false);
+    setCorrectAnswer(null);
     setQuestions(getQuestions);
     console.log(questions);
     setQuestionNumber(1);
     setScore(0);
     setCurrentQuestion(questions[0]);
     setGameState(true);
-    setResults(false);
-  };
-
-  const nextQuestion = () => {
-    if (questionNumber < questions.length) {
-      setQuestionNumber(questionNumber + 1);
-      setCurrentQuestion(questions[questionNumber - 1]);
-    } else if (questionNumber + 1 > questions.length) {
-      setGameState(false);
-    }
   };
 
   const context = {
@@ -68,11 +61,12 @@ const App = () => {
     setCurrentQuestion,
     onStart,
     onRestart,
-    nextQuestion,
     questionNumber,
     setQuestionNumber,
     results,
     setResults,
+    correctAnswer,
+    setCorrectAnswer,
   };
 
   return (

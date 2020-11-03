@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
+import ReactDOM from "react-dom";
 import App, { getQuestions } from "./App";
-import data from "../src/data//questions.json";
-// describe("App", () => {
-//   it("getQuestions function returns 10 questions", () => {
-//     expect(getQuestions(data).length.toEqual(10));
-//   });
-// });
+describe("App", () => {
+  it("renders without crashing", () => {
+    const div = document.createElement("div");
+    ReactDOM.render(<App />, div);
+  });
+});

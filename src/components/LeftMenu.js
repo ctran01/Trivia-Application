@@ -8,24 +8,31 @@ const LeftMenu = () => {
 
   return (
     <div className="left-menu-container">
-      <div className="left-menu-container-top"></div>
-      <div className="left-menu-container-middle">
-        Question Number: {questionNumber}
+      <div
+        className="left-menu-container-stats"
+        style={{ flexDirection: "column" }}
+      >
+        <div className="left-menu-container-question">
+          Question Number: {questionNumber}
+        </div>
+        <div className="left-menu-container-score">Score: {score}</div>
+        {gameState === true ? null : (
+          <div className="left-menu-container-start" onClick={onStart}>
+            <button className="left-menu-container-bottom__button">
+              Start
+            </button>
+          </div>
+        )}
+        {gameState === false ? null : (
+          <div className="left-menu-container-bottom" onClick={onRestart}>
+            <button className="left-menu-container-bottom__button">
+              Start Over
+            </button>
+          </div>
+        )}
       </div>
-      <div className="left-menu-container-middle">Score: {score}</div>
-      {gameState === true ? null : (
-        <div className="left-menu-container-bottom" onClick={onStart}>
-          <button className="left-menu-container-bottom__button">Start</button>
-        </div>
-      )}
-      {gameState === false ? null : (
-        <div className="left-menu-container-bottom" onClick={onRestart}>
-          <button className="left-menu-container-bottom__button">
-            Start Over
-          </button>
-        </div>
-      )}
-      <div>
+
+      <div className="social">
         <div style={{ display: "flex", flexDirection: "column" }}>
           <p>Created by Chris Tran</p>
           <a href="https://github.com/ctran01">

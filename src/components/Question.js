@@ -14,10 +14,11 @@ const Question = () => {
     gameState,
     results,
     setResults,
+    correctAnswer,
+    setCorrectAnswer,
   } = useContext(GameContext);
   const [answerChoices, setAnswerChoices] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState();
-  const [correctAnswer, setCorrectAnswer] = useState(null);
 
   const shuffleAnswers = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -71,6 +72,7 @@ const Question = () => {
     setCorrectAnswer(null);
     setSelectedAnswer();
   };
+
   return (
     <>
       {results === false ? (
@@ -98,6 +100,7 @@ const Question = () => {
               })}
             </div>
           </div>
+          {/* Shows submit button only if answer has not been checked and there are still more questions */}
           {correctAnswer === null && questionNumber <= 10 && (
             <div className="submitButton button">
               <button
@@ -109,6 +112,7 @@ const Question = () => {
               </button>
             </div>
           )}
+          {/* Shows end results page if number of questions = 10 else show next question button */}
           {correctAnswer !== null && questionNumber <= 10 && (
             <div className="nextButton button">
               {questionNumber === 10 ? (
@@ -130,7 +134,9 @@ const Question = () => {
               )}
             </div>
           )}
+
           <div className="Result Container">
+            {/* If correct answer, message shows up letting user know */}
             {correctAnswer !== null && correctAnswer === true && (
               <div>
                 <p style={{ fontSize: "20px", backgroundColor: "lightgreen" }}>
@@ -139,6 +145,7 @@ const Question = () => {
                 </p>
               </div>
             )}
+            {/* if incorrect answer, message shows correct answer */}
             {correctAnswer !== null &&
               correctAnswer === false &&
               gameState === true && (

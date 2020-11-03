@@ -6,7 +6,7 @@ const Main = () => {
   const { onStart, gameState } = useContext(GameContext);
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <LeftMenu />
       <main className="main-content-container">
         <div className="header-container">
@@ -16,11 +16,11 @@ const Main = () => {
           <>
             <div className="main-content">
               <h1>Welcome to my Trivia Game! Click start to begin!</h1>
-            </div>
-            <div>
-              <button className="start-button" onClick={onStart}>
-                Start!
-              </button>
+              <div>
+                <button className="start-button" onClick={onStart}>
+                  Start!
+                </button>
+              </div>
             </div>
           </>
         ) : (
